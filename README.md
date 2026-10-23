@@ -8,23 +8,52 @@ Your intelligent, privacy-first productivity companion powered by local AI.
 
 Because the smartest way to get things done is to let AI handle the boring stuff.
 
-Hacktoberfest Week 3 | Slow and Steady
+🏆 Hacktoberfest Week 3 — Slow and Steady
+
+⭐ Star Repository • 🐛 Report an Issue • 💻 View Source Code
 
 </div>
 
 ⸻
 
+📖 Table of Contents
+
+* Overview
+* The Problem
+* Our Solution
+* Key Features
+* Why Open Innovation Matters
+* System Architecture
+* Technology Stack
+* Project Structure
+* Installation and Setup
+* API Endpoints
+* Screenshots
+* Project Demo
+* Hacktoberfest Challenge
+* Future Roadmap
+* Contributing
+* Security and Privacy
+* Project Creator
+* License
+
+⸻
+
 🌟 Overview
 
-SlothOS AI is a local-first, AI-powered productivity assistant designed to eliminate repetitive digital tasks and make everyday workflows effortless.
+SlothOS AI is a local-first, AI-powered productivity assistant designed to reduce repetitive digital tasks and make everyday workflows easier.
 
-From organizing messy files to summarizing lengthy documents and converting unstructured thoughts into actionable tasks, SlothOS helps users accomplish more with less effort.
+From organizing messy files to summarizing lengthy documents and converting unstructured thoughts into actionable tasks, SlothOS helps users accomplish more with less manual effort.
 
-Unlike traditional cloud-dependent AI assistants, SlothOS uses Gemma 3 through Ollama, allowing AI inference to run directly on your computer.
+Unlike cloud-dependent AI assistants, SlothOS uses Gemma 3 through Ollama, enabling AI inference directly on the user’s computer.
 
-The result is a productivity assistant built around three principles:
+The project is built around three principles:
 
-🔒 Privacy. ⚡ Simplicity. 🦥 Effortless Productivity.
+🔒 Privacy — Keep AI processing local.
+
+⚡ Simplicity — Make complex workflows easier.
+
+🦥 Effortless Productivity — Let AI handle repetitive work.
 
 Why spend hours doing repetitive work when your computer can help handle it?
 
@@ -32,51 +61,74 @@ Why spend hours doing repetitive work when your computer can help handle it?
 
 🎯 The Problem
 
-Every day, students, developers, and professionals spend valuable time on repetitive tasks:
+Students, developers, and professionals spend significant time on repetitive digital tasks.
 
-* Manually organizing downloaded files.
-* Reading lengthy PDFs to extract important information.
-* Converting scattered notes into structured task lists.
-* Identifying priorities from unorganized information.
-* Switching between multiple productivity applications.
+Common challenges include:
 
-Although these tasks are necessary, they consume time that could be spent learning, creating, or solving meaningful problems.
+* 📂 Organizing scattered files and downloads.
+* 📄 Reading lengthy PDFs to extract useful information.
+* 📝 Converting unstructured notes into task lists.
+* ⏰ Identifying priorities and planning activities.
+* 🔄 Switching between multiple productivity tools.
 
-Many AI solutions also rely on external servers, requiring users to upload personal information and maintain an internet connection.
+These activities consume time that could otherwise be spent learning, building, or solving meaningful problems.
 
-SlothOS AI aims to solve both problems: repetitive work and unnecessary cloud dependency.
+Many AI-powered alternatives also depend on external servers, introducing potential privacy concerns, internet dependency, and recurring API costs.
+
+The Challenge
+
+How can we reduce repetitive digital work while giving users more control over their AI tools and data?
 
 ⸻
 
 💡 Our Solution
 
-SlothOS brings AI-powered productivity tools into a single, intuitive dashboard.
+SlothOS AI brings multiple AI-powered productivity workflows into a single local-first application.
 
-Powered by locally running open-weight AI, it helps users automate everyday tasks while maintaining greater control over their information.
+Users interact with a modern React dashboard while a Python FastAPI backend communicates with a locally running Gemma 3 model through Ollama.
+
+Our Approach
+
+Upload → Analyze → Generate → Review → Act
+
+Instead of manually processing information, users can delegate routine analysis and organization tasks to SlothOS.
+
+The goal is simple:
+
+Spend less time managing work and more time doing what matters.
+
+⸻
+
+🚀 Key Features
 
 🗂️ 1. Smart File Organizer
 
-Transform digital clutter into an organized workspace.
+Turn digital clutter into an organized workspace.
 
-Capabilities:
+The Smart File Organizer is designed to help users classify and organize uploaded files.
+
+Capabilities
 
 * Upload multiple files.
-* Analyze filenames, extensions, and supported document content.
-* Use AI to suggest appropriate categories.
-* Preview the proposed organization.
-* Confirm the operation before files are organized.
-* Preserve the original uploaded files.
+* Analyze filenames and supported file contents.
+* Suggest categories using AI.
+* Preview file classifications.
+* Review organization suggestions.
+* Organize file copies within a local workspace.
 
-Example:
+Example
 
-Before:
+Before Organization
+
 Downloads/
 ├── notes.pdf
 ├── assignment.py
 ├── screenshot.png
 ├── project_report.pdf
 └── tasks.txt
-After:
+
+After Organization
+
 Organized/
 ├── Documents/
 │   └── project_report.pdf
@@ -89,174 +141,219 @@ Organized/
 └── Other/
     └── tasks.txt
 
-The application organizes copies inside its local workspace rather than modifying the user’s original files.
+Benefit: Less manual file sorting and a cleaner workspace.
+
+⸻
 
 📄 2. AI Document Summarizer
 
-Turn lengthy PDF documents into concise, useful information.
+Turn long documents into useful insights.
 
-Capabilities:
+The Document Summarizer uses AI to analyze text extracted from uploaded PDF documents.
 
-* Upload text-based PDF documents.
+Capabilities
+
+* Upload text-based PDFs.
 * Extract document text.
-* Generate an AI-powered summary.
-* Identify important concepts.
-* Highlight key points.
-* Extract action items when relevant.
+* Generate concise summaries.
+* Highlight important information.
+* Identify key concepts.
+* Suggest action items when relevant.
 
-Example:
+Example
 
 Input: A PDF containing lecture notes.
 
-Output:
+Generated Output:
 
-* Document overview
-* Five key points
-* Important concepts
-* Suggested action items
+DOCUMENT SUMMARY
+Overview:
+A concise explanation of the document.
+KEY POINTS
+1. Important concept one
+2. Important concept two
+3. Important concept three
+ACTION ITEMS
+- Review important definitions
+- Practice related exercises
+- Prepare revision notes
 
-The current prototype limits the amount of text sent to the model, so very long documents may require future chunking support.
+Benefit: Spend less time reading repetitive material and more time understanding it.
+
+Limitation: Very long documents may require additional processing because the current prototype limits the amount of text sent to the model.
+
+⸻
 
 🧠 3. Lazy Task Planner
 
-Turn unstructured thoughts into an organized task list.
+Turn messy thoughts into structured plans.
 
-Example input:
+Users can enter unstructured notes and ask SlothOS to identify tasks and suggest priorities.
+
+Example Input
 
 I need to finish my Python assignment,
 prepare for my robotics interview,
 complete my presentation,
 and revise mathematics.
 
-Example output:
+Example Output
 
 Task	Suggested Priority
-Prepare for robotics interview	High
-Complete presentation	High
-Finish Python assignment	Medium
-Revise mathematics	Medium
+Prepare for robotics interview	🔴 High
+Complete presentation	🔴 High
+Finish Python assignment	🟡 Medium
+Revise mathematics	🟡 Medium
 
-Capabilities:
+Capabilities
 
 * Natural-language task extraction.
 * AI-generated task descriptions.
-* Priority suggestions.
+* Suggested priorities.
 * Structured task presentation.
+
+Benefit: Less time planning and more time completing tasks.
+
+⸻
 
 🦥 4. Sloth Mode
 
-One document. Multiple useful insights.
+One Document. Multiple Useful Insights.
 
-Sloth Mode is designed around the challenge’s central philosophy: reducing unnecessary effort.
+Sloth Mode represents the central philosophy of SlothOS AI.
 
-Instead of manually reviewing a document and planning what to do next, users can upload a PDF and let SlothOS analyze it.
+Instead of manually reading, analyzing, and planning around a document, users can upload it and request a structured AI response.
 
-The current prototype generates:
+Workflow
 
-1. A concise document summary.
+Upload Document
+       |
+       v
+Extract Text
+       |
+       v
+Analyze with Gemma 3
+       |
+       v
+Generate Summary
+       |
+       v
+Identify Action Items
+       |
+       v
+Suggest Priorities
+       |
+       v
+Recommend Next Steps
+
+Generated Insights
+
+1. Concise document summary.
 2. Important action items.
 3. Suggested priorities.
 4. Recommended next steps.
 
-Future versions aim to connect document analysis, task creation, and file organization into a broader automated workflow.
+Benefit: One action replaces several repetitive analysis steps.
+
+Future versions aim to connect these insights to more advanced automated workflows.
 
 ⸻
 
-🧠 Powered by Open Innovation
+🧠 Why Open Innovation Matters
 
-SlothOS uses Gemma 3, an open-weight language model, through the local inference runtime Ollama.
+SlothOS AI uses Gemma 3 (1B), an open-weight language model, through Ollama, a local AI inference runtime.
 
-This architecture makes local AI processing a core part of the application rather than an optional feature.
+This choice is fundamental to the project’s architecture.
 
-Why Local AI?
+🔓 Why Use Open-Weight AI?
 
-Feature	SlothOS Local AI Approach	Typical Cloud AI Approach
-Inference location	User’s computer	Remote infrastructure
-Internet required for inference	No, after setup	Usually yes
-Document transmission to AI provider	Not required	Often required
-Per-request API fees	None for local inference	May apply
-Model customization	Local model and prompt configuration	Provider-dependent
-Hardware requirements	Local computing resources	Primarily remote resources
+Feature	SlothOS Local AI	Typical Cloud AI
+Inference Location	User’s computer	Remote servers
+Internet for Inference	Not required after setup	Usually required
+Document Privacy	Local processing possible	Data may be transmitted
+Per-Request API Cost	None	May apply
+Model Configuration	Locally configurable	Provider-dependent
+Hardware	Uses local resources	Uses remote resources
+Offline Operation	Supported after setup	Often unavailable
 
 🔒 Privacy
 
-Documents can be processed locally without sending their contents to an external AI inference service.
+SlothOS can process documents locally without sending their contents to an external AI inference provider.
+
+This gives users greater control over their information.
 
 🌐 Offline Functionality
 
-After installing the required software and downloading the model, core AI workflows can operate without an internet connection.
+After installing Ollama, downloading Gemma 3, and setting up the application, core AI functionality can run without an internet connection.
 
 🛠️ Customization
 
-Developers can customize prompts, processing logic, and supported models.
+Developers can modify prompts, workflows, and model configurations.
 
 💰 Cost Control
 
-Local inference avoids recurring per-request cloud AI fees, although it still consumes local computing resources and electricity.
+Local inference avoids recurring per-request cloud AI charges.
 
-Open innovation matters because it gives developers and users greater control over how their AI tools operate.
+Users still need sufficient computing resources, and local inference consumes electricity.
 
-Note: Gemma is distributed under its own model terms. It is described here as open-weight rather than as a model released under a conventional open-source software license.
+🌍 Open Innovation Philosophy
+
+Open innovation allows developers to inspect, customize, and extend their AI applications.
+
+SlothOS demonstrates how local AI can support practical productivity workflows without requiring a proprietary cloud AI API.
+
+Important: Gemma is an open-weight model distributed under its own terms. It is not described here as software released under a conventional open-source license.
 
 ⸻
 
 🏗️ System Architecture
 
-                     ┌─────────────────────┐
-                     │        USER         │
-                     └──────────┬──────────┘
-                                │
-                                ▼
-                     ┌─────────────────────┐
-                     │   React Frontend    │
-                     │   Tailwind CSS UI   │
-                     └──────────┬──────────┘
-                                │
-                                │ HTTP Requests
-                                ▼
-                     ┌─────────────────────┐
-                     │   FastAPI Backend   │
-                     │       Python        │
-                     └──────────┬──────────┘
-                                │
-                 ┌──────────────┼──────────────┐
-                 │              │              │
-                 ▼              ▼              ▼
-          ┌────────────┐ ┌────────────┐ ┌────────────┐
-          │    File    │ │  Document  │ │    Task    │
-          │ Organizer  │ │ Summarizer │ │  Planner   │
-          └──────┬─────┘ └──────┬─────┘ └──────┬─────┘
-                 │              │              │
-                 └──────────────┼──────────────┘
-                                │
-                                ▼
-                     ┌─────────────────────┐
-                     │       Ollama        │
-                     │      Gemma 3        │
-                     │    Local Model      │
-                     └──────────┬──────────┘
-                                │
-                                ▼
-                     ┌─────────────────────┐
-                     │    AI Response      │
-                     └─────────────────────┘
+SlothOS follows a frontend–backend architecture with local AI inference.
+
+flowchart TD
+    A["👤 User"] --> B["🖥️ React Dashboard"]
+    B --> C["⚙️ FastAPI Backend"]
+    C --> D["🗂️ Smart File Organizer"]
+    C --> E["📄 Document Summarizer"]
+    C --> F["🧠 Lazy Task Planner"]
+    C --> G["🦥 Sloth Mode"]
+    D --> H["🤖 Ollama"]
+    E --> H
+    F --> H
+    G --> H
+    H --> I["🧠 Gemma 3 1B"]
+    I --> J["✨ AI-Generated Results"]
+    J --> C
+    C --> B
+
+How It Works
+
+1. The user interacts with the React dashboard.
+2. The frontend sends requests to the FastAPI backend.
+3. The backend processes input files or text.
+4. Ollama runs the Gemma 3 model locally.
+5. The AI generates a response.
+6. The backend returns the result to the frontend.
+7. The dashboard displays the generated information.
 
 ⸻
 
 🛠️ Technology Stack
 
 Layer	Technology	Purpose
-Frontend	React	Interactive user interface
-Build Tool	Vite	Frontend development and bundling
-Styling	Tailwind CSS	Responsive dashboard design
-Icons	Lucide React	Interface icons
-HTTP Client	Axios	Frontend–backend communication
+Frontend	React	Interactive dashboard
+Build Tool	Vite	Fast frontend development
+Styling	Tailwind CSS	Responsive interface
+Icons	Lucide React	UI icons
+HTTP Client	Axios	API communication
 Backend	Python	Application logic
-API Framework	FastAPI	REST API endpoints
+API Framework	FastAPI	REST API
 AI Runtime	Ollama	Local model inference
-AI Model	Gemma 3 (1B)	Language understanding and generation
-PDF Processing	PyMuPDF	Document text extraction
+AI Model	Gemma 3 (1B)	AI text processing
+PDF Processing	PyMuPDF	Extract PDF text
 File Management	Python pathlib/shutil	Local file operations
+Version Control	Git	Source control
+Repository Hosting	GitHub	Code collaboration
 
 ⸻
 
@@ -267,14 +364,17 @@ SlothOS-AI/
 ├── backend/
 │   ├── main.py
 │   ├── requirements.txt
-│   └── workspace/          # Local files (Git ignored)
+│   └── workspace/
 │
 ├── frontend/
 │   ├── public/
+│   │
 │   ├── src/
 │   │   ├── App.jsx
+│   │   ├── App.css
 │   │   ├── index.css
 │   │   └── main.jsx
+│   │
 │   ├── package.json
 │   ├── package-lock.json
 │   └── vite.config.js
@@ -282,254 +382,366 @@ SlothOS-AI/
 ├── .gitignore
 └── README.md
 
+The local Python virtual environment, installed Node.js dependencies, and generated workspace files should not be committed to Git.
+
 ⸻
 
 ⚙️ Installation and Setup
 
 Prerequisites
 
-Before starting, install:
+Install the following software:
 
 * Node.js and npm
 * Python 3.11 or newer with compatible dependencies
 * Git
 * Ollama
 
-The application currently uses the gemma3:1b model.
+AI Model: gemma3:1b
 
-1️⃣ Clone the Repository
+Step 1: Clone the Repository
 
-git clone https://github.com/YOUR_USERNAME/SlothOS-AI.git
+Open your terminal and run:
+
+git clone https://github.com/sandeepji11/SlothOS-AI.git
 cd SlothOS-AI
 
-Replace YOUR_USERNAME with your GitHub username.
-
-2️⃣ Install Gemma 3
-
-Make sure Ollama is installed and running.
+Step 2: Install Gemma 3
 
 Download the model:
 
 ollama pull gemma3:1b
 
-Verify installation:
+Verify that it is installed:
 
 ollama list
 
-3️⃣ Set Up the Backend
+You should see gemma3:1b among the installed models.
 
-Navigate to the backend directory:
+If Ollama is not running, start the Ollama application or use:
+
+ollama serve
+
+If Ollama is already running, you do not need to start another instance.
+
+Step 3: Set Up the Backend
+
+Open a terminal inside the project.
 
 cd backend
 
-Create a virtual environment:
+Create a Python virtual environment:
 
 python3 -m venv venv
 
-Activate it on macOS or Linux:
+Activate the environment on macOS or Linux:
 
 source venv/bin/activate
 
-Install dependencies:
+Install the dependencies:
 
-pip install -r requirements.txt
+python -m pip install -r requirements.txt
 
 Start FastAPI:
 
 python -m uvicorn main:app --reload --host 127.0.0.1 --port 8000
 
-The backend runs at:
+Expected output:
+
+INFO: Uvicorn running on http://127.0.0.1:8000
+INFO: Application startup complete.
+
+Backend Address:
 
 http://127.0.0.1:8000
 
-Interactive API documentation:
+Interactive API Documentation:
 
 http://127.0.0.1:8000/docs
 
-4️⃣ Set Up the Frontend
+Keep this terminal running.
 
-Open another terminal from the project root.
+Step 4: Set Up the Frontend
+
+Open another terminal.
+
+From the project root, run:
 
 cd frontend
 
-Install dependencies:
+Install the frontend dependencies:
 
 npm install
 
-Start the development server:
-
-npm run dev
-
-Vite displays the local address in the terminal.
-
-The default is:
-
-http://localhost:5173
-
-If that port is occupied, Vite may use another available port.
-
-For development on port 5175:
+Start the development server on port 5175:
 
 npm run dev -- --port 5175
 
-Ensure the selected frontend origin is allowed by the FastAPI CORS configuration.
+Expected output:
 
-5️⃣ Launch SlothOS
+VITE ready
+Local: http://localhost:5175/
 
-Open the frontend address in your browser.
+Step 5: Open SlothOS AI
 
-Make sure:
+Open your browser and visit:
 
-* Ollama is running.
-* The Gemma 3 model is installed.
-* FastAPI is running.
-* React is running.
+http://localhost:5175/
 
-The dashboard should display Local AI Ready when the backend can access the installed model.
+Make sure the following services are running:
+
+Service	Address
+React Frontend	http://localhost:5175
+FastAPI Backend	http://127.0.0.1:8000
+Ollama	http://localhost:11434
+API Documentation	http://127.0.0.1:8000/docs
+
+The frontend origin must be allowed by the backend’s CORS configuration.
+
+When the frontend successfully communicates with the backend and the backend detects Gemma 3, the dashboard should indicate that local AI is ready.
 
 ⸻
 
 🔌 API Endpoints
 
+SlothOS uses FastAPI to connect its frontend tools to backend functionality.
+
+The following endpoints are documented for the project:
+
 Method	Endpoint	Description
 GET	/	Backend information
-GET	/api/health	Check backend and Ollama status
-POST	/api/chat	Generate a local AI response
-POST	/api/summarize	Summarize a PDF
-POST	/api/tasks	Convert notes into tasks
-POST	/api/organize/preview	Preview AI file classification
-POST	/api/organize/apply	Organize approved file copies
-POST	/api/sloth-mode	Generate document insights and action items
+GET	/api/health	Backend and AI status
+POST	/api/chat	Local AI chat
+POST	/api/summarize	PDF summarization
+POST	/api/tasks	Task generation
+POST	/api/organize/preview	File classification preview
+POST	/api/organize/apply	Apply approved organization
+POST	/api/sloth-mode	Document analysis and action items
 
-Explore the API using FastAPI’s interactive documentation.
+Note: Available routes depend on the current backend implementation. Use /docs to inspect the endpoints exposed by the running application.
 
 ⸻
 
 📸 Screenshots
 
-Add screenshots of the working application here.
+🖥️ Main Dashboard
 
-Recommended screenshots:
+The main dashboard provides access to SlothOS productivity tools and displays the local AI connection status.
 
-1. Main Dashboard
+📄 AI Document Summarizer
 
-Show the SlothOS homepage, navigation sidebar, and AI status indicator.
+The summarizer interface allows users to upload PDF documents and request AI-generated insights.
 
-2. AI Document Summarizer
+🗂️ Smart File Organizer
 
-Show a PDF upload and the generated summary.
+The organizer interface is designed to classify uploaded files and preview suggested categories.
 
-3. Smart File Organizer
+🧠 Lazy Task Planner
 
-Show the AI classification preview.
+The task planner converts unstructured notes into organized tasks with suggested priorities.
 
-4. Lazy Task Planner
+🦥 Sloth Mode
 
-Show unstructured notes converted into prioritized tasks.
+Sloth Mode combines document summarization, action-item extraction, and next-step recommendations.
 
-5. Sloth Mode
-
-Show document insights and recommended next steps.
+Application screenshots will be added as the project documentation is updated.
 
 ⸻
 
 🎬 Project Demo
 
+SlothOS AI in Action
+
 Demo Video: Coming soon.
 
-Live Demo: SlothOS currently runs as a local application.
+Source Code: SlothOS AI GitHub Repository
 
-Source Code: This repository.
+Project Type: Local-first AI application.
 
-A demonstration should highlight the actual working features and show Gemma 3 processing information locally.
+Planned Demo Highlights
+
+* Launching the SlothOS dashboard.
+* Verifying local Gemma 3 inference.
+* Summarizing a PDF document.
+* Generating tasks from natural-language notes.
+* Demonstrating file classification.
+* Running Sloth Mode.
+* Showing that the model runs locally through Ollama.
+
+Note: The application currently runs locally. The development address is not a publicly hosted demo.
 
 ⸻
 
 🏆 Hacktoberfest Week 3 — Slow and Steady
 
-The Challenge
+🎯 Challenge Theme
 
-Build something using open-weight models or open-source AI that rewards laziness.
+Slow and Steady
 
-Our Interpretation
+Build something with open-weight models or open-source AI that rewards laziness.
 
-Sloths conserve energy by avoiding unnecessary effort.
+🦥 Our Interpretation
 
-SlothOS applies that philosophy to digital productivity.
+Sloths are known for conserving energy and avoiding unnecessary effort.
 
-Rather than spending time on repetitive tasks, users can delegate routine work to an AI assistant.
+SlothOS applies the same philosophy to digital productivity.
 
-How SlothOS Fits the Theme
+Instead of requiring users to manually perform every repetitive task, the application helps automate information processing and organization.
 
-Slow: The application prioritizes thoughtful, useful automation over unnecessary complexity.
+How SlothOS Fits the Challenge
 
-Steady: Repeatable workflows help users complete everyday tasks consistently.
+Theme	SlothOS Approach
+Slow	Thoughtful automation over unnecessary complexity
+Steady	Repeatable productivity workflows
+Lazy	Less manual organization and analysis
+Open	Open-weight AI and open-source development tools
+Practical	Everyday productivity use cases
+Privacy	Local AI inference
 
-Lazy: Users spend less time organizing, summarizing, and planning.
+Why This Project Matters
 
-Open: The application uses an open-weight model and open-source development tools.
+AI productivity should not always require expensive cloud services or external processing of personal information.
 
-Our Goal
+SlothOS explores a different approach: local AI that can assist with repetitive tasks while giving users more control.
 
-Make AI productivity more accessible, customizable, and privacy-conscious.
+Our Vision
+
+Make useful AI productivity tools accessible, customizable, and privacy-conscious.
 
 ⸻
 
 🗺️ Future Roadmap
 
-* Download organized files as a ZIP archive.
-* Edit AI-suggested file categories before applying changes.
-* Support larger PDFs through document chunking.
-* Add persistent task storage.
-* Implement semantic document search.
-* Add configurable local AI models.
-* Expand Sloth Mode into a multi-step automation system.
-* Add task history and activity analytics.
-* Improve error handling and accessibility.
-* Add automated tests.
+The following improvements are planned for future development:
+
+* Export organized files as ZIP archives.
+* Edit suggested categories before applying changes.
+* Add document chunking for large PDFs.
+* Implement persistent task storage.
+* Add semantic document search.
+* Support configurable local AI models.
+* Expand Sloth Mode into multi-step automation.
+* Add activity history.
+* Add productivity analytics.
+* Improve accessibility.
+* Add automated backend tests.
+* Add frontend component tests.
+* Improve error handling.
 * Package SlothOS as a desktop application.
 
 ⸻
 
 🤝 Contributing
 
-Contributions, ideas, and improvements are welcome.
+Contributions and suggestions are welcome!
 
-To contribute:
+How to Contribute
 
 1. Fork the repository.
 2. Create a feature branch.
 3. Make your changes.
 4. Test your implementation.
 5. Commit your changes.
-6. Open a pull request describing your improvements.
+6. Push your branch.
+7. Open a pull request.
 
-Please avoid including personal documents, model weights, credentials, or generated local files in pull requests.
+Example
+
+git clone https://github.com/sandeepji11/SlothOS-AI.git
+cd SlothOS-AI
+git checkout -b feature/my-improvement
+
+After making changes:
+
+git add .
+git commit -m "feat: describe your improvement"
+git push -u origin feature/my-improvement
+
+Open a pull request to propose the changes.
+
+Contribution Guidelines
+
+* Write readable, maintainable code.
+* Follow the existing project structure.
+* Test changes before submitting.
+* Explain new features clearly.
+* Do not commit credentials or personal documents.
+* Respect third-party software and model licenses.
+
+For bugs or suggestions, open an issue:
+
+Report an Issue
 
 ⸻
 
 🔐 Security and Privacy
 
-SlothOS is designed for local development and experimentation.
+SlothOS is designed as a local-first productivity application.
+
+Privacy Principles
 
 * AI inference runs through a locally configured Ollama instance.
-* Uploaded files are processed by the local backend.
-* The organizer operates on uploaded copies.
-* Local workspace files should be excluded from Git.
-* The development backend should not be exposed publicly without additional security measures.
-* Users should review AI-generated outputs before relying on them.
+* Supported documents can be processed locally.
+* Local workspace files should remain excluded from Git.
+* Users should review AI-generated suggestions.
+* Local inference reduces dependency on external AI services.
 
-Local inference reduces the need to transmit data to external AI providers, but it does not automatically guarantee complete system security.
+Security Considerations
+
+* Do not expose the development API publicly without authentication and appropriate security controls.
+* Do not commit API keys or private information.
+* Validate uploaded files.
+* Keep dependencies updated.
+* Review AI-generated results before taking important actions.
+* Back up important documents before using file-management tools.
+
+Local inference improves control over data processing, but it does not automatically guarantee complete security.
+
+⸻
+
+👨‍💻 Project Creator
+
+<div align="center">
+
+Sandeep Verma
+
+Developer & Creator of SlothOS AI
+
+Passionate about artificial intelligence, automation, and building technology that solves real-world problems.
+
+Project: SlothOS AI 🦥
+
+Event: Hacktoberfest Week 3 — Slow and Steady
+
+Technology Stack: React • Python • FastAPI • Ollama • Gemma 3
+
+Connect
+
+</div>
 
 ⸻
 
 📜 License
 
-A software license will be selected and added before the public release.
+A software license has not yet been specified for this repository.
 
-Until then, the repository does not grant general permission to reuse or redistribute its code.
+Until a license is added, the source code remains subject to applicable copyright law.
 
-Third-party dependencies and the Gemma model remain subject to their respective licenses and terms.
+Third-party dependencies and the Gemma model are governed by their respective licenses and terms.
+
+⸻
+
+⭐ Support the Project
+
+If you find SlothOS AI interesting or useful:
+
+* ⭐ Star the repository.
+* 🍴 Fork the project.
+* 🐛 Report bugs.
+* 💡 Suggest improvements.
+* 🤝 Contribute to development.
+
+Your support helps the project grow!
 
 ⸻
 
@@ -539,10 +751,14 @@ Third-party dependencies and the Gemma model remain subject to their respective 
 
 Less Busywork. More Meaningful Work.
 
+Work Less. Live More.
+
 Built with curiosity, open innovation, and a little bit of laziness.
 
 Hacktoberfest Week 3 — Slow and Steady
 
-⭐ If you find this project useful, consider starring the repository!
+Made by Sandeep Verma
+
+⭐ Star on GitHub
 
 </div>
