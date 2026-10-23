@@ -1,0 +1,40 @@
+# ==============================
+# SlothOS AI - Git Ignore
+# ==============================
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+venv/
+.venv/
+
+# Node.js
+node_modules/
+dist/
+build/
+
+# Environment Variables
+.env
+.env.local
+.env.production
+*.pem
+*.key
+
+# Local AI Data
+backend/workspace/
+
+# Databases
+*.db
+*.sqlite
+*.sqlite3
+
+# macOS
+.DS_Store
+
+# VS Code
+.vscode/
+
+# Logs
+*.log
+npm-debug.log*
